@@ -1,0 +1,16 @@
+FROM archlinux/base
+MAINTAINER byidi <sajot.vincent@gmail.com>
+
+RUN rm /etc/localtime
+RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
+
+RUN pacman -Syyu --noconfirm
+RUN pacman-db-upgrade
+RUN pacman -S --noconfirm nginx
+
+RUN sed -i -E 's/^#(fr_FR.UTF-8 UTF-8)/\1/' /etc/locale.gen
+RUN locale-gen
+
+EXPOSE 80
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

@@ -1,0 +1,10 @@
+FROM archlinux/base
+MAINTAINER byidi <sajot.vincent@gmail.com>
+
+RUN pacman -Syyu --noconfirm
+RUN pacman-db-upgrade
+RUN pacman -S --noconfirm python python-pip
+RUN locale-gen
+
+COPY ./requirements.txt /opt/requirements.txt
+RUN pip install -r /opt/requirements.txt
