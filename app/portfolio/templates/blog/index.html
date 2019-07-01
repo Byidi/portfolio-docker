@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <hr/>
+    {% for article in articles %}
+        {{article.title}}<br/>
+        {{article.content}}<br/>
+        {{article.user.name}}<br/>
+        <hr/>
+    {% endfor %}
+{% endblock %}
