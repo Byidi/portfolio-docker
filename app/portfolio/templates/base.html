@@ -1,17 +1,38 @@
-<!doctype html>
-<title>{% block title %}{% endblock %} - Flaskr</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-<nav>
-  <h1>Flaskr</h1>
-  <ul>
-  </ul>
-</nav>
-<section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-  {% block content %}{% endblock %}
-</section>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <title>Vincent Sajot - {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <header>
+            <div id="arianne">
+                <div class="subArianne avatar">
+                    <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="">
+                </div>
+                <div class="subArianne">
+                    vincent<span class="arobase">@</span>sajot
+                </div>
+                <a href="{{ url_for('index') }}" class="subArianne">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                {% block arianne%}{% endblock %}
+            </div>
+            <nav id="menu">
+                {% block menu %}
+                <a href="#">Portfolio</a>
+                <a href="#">Compétences</a>
+                <a href="#">Contact</a>
+                {% endblock %}
+            </nav>
+        </header>
+        <section id="content">
+            {% block content %}
+            {% endblock %}
+        </section>
+    </body>
+</html>

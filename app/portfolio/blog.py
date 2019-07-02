@@ -5,7 +5,7 @@ from werkzeug.exceptions import abort
 
 from portfolio.auth import login_required
 from portfolio.models.user import User
-from portfolio.models.article import Article, Category, Article_category
+from portfolio.models.article import Article, Category
 
 from portfolio.utils import slugify
 
@@ -20,4 +20,4 @@ def index():
 @bp.route('/article/<int:id>/<string:slug>')
 def showArticle(id=None, slug=None):
     article = Article.query.filter_by(id=id, published=1).first()
-    return render_template('blog/article.html', article=article, test=test)
+    return render_template('blog/article.html', article=article)

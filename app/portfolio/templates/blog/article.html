@@ -4,9 +4,18 @@
   <h1>{% block title %}{% endblock %}</h1>
 {% endblock %}
 
+{% block arianne %}
+    <div class="subArianne">{{article.categories|first}}</div>
+    <a href="{{ url_for('blog.showArticle', id=article.id, slug=article.slug) }}" class="subArianne">
+        {{article.slug}}
+    </a>
+{% endblock %}
+
 {% block content %}
-{{test}}<br/>
-    {{article.title}}<br/>
-    {{article.content}}<br/>
-    {{article.user.name}}<br/>
+
+    <div class="term">
+        {{article.title}}<br/>
+        {{article.content}}<br/>
+        {{article.user.name}}<br/>
+    </div>
 {% endblock %}
