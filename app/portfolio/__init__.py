@@ -1,7 +1,10 @@
 import os
 
-from flask import Flask
+
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+
+import portfolio.utils.filters
 
 def create_app(test_config=None):
     app = Flask(__name__)
@@ -20,16 +23,27 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+
     from portfolio.db import db_session
     @app.teardown_appcontext
     def shutdown_session(exception=None):
         db_session.remove()
+
+    from portfolio.utils import filters
+    app.register_blueprint(filters.blueprint)
 
     from portfolio import auth
     app.register_blueprint(auth.bp)
 
     from portfolio import blog
     app.register_blueprint(blog.bp)
-    app.add_url_rule('/', endpoint='index')
+
+    @app.route('/')
+    def index():
+        return render_template('index.html')
+
+    @app.route('/contact/')
+    def contact():
+        return render_template('contact.html')
 
     return app

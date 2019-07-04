@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% include 'parts/windowTop.html' %}
+
+        <form id="formContact" method="post">
+            <div>
+                Nom : <input type="text" name="nom" placeholder="">
+            </div>
+            <div>
+                Prénom : <input type="text" name="prenom" placeholder="">
+            </div>
+            <div>
+                Mail : <input type="text" name="email" placeholder="">
+            </div>
+        </form>
+
+    {% include 'parts/windowBottom.html' %}
+
+{% endblock %}

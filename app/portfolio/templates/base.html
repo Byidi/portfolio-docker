@@ -22,11 +22,13 @@
                 </a>
                 {% block arianne%}{% endblock %}
             </div>
+            <div class="command">ls -d /home/*</div>
             <nav id="menu">
                 {% block menu %}
-                <a href="#">Portfolio</a>
-                <a href="#">Compétences</a>
-                <a href="#">Contact</a>
+                <a href="{{ url_for('blog.index') }}" class="{% if ( request.endpoint|folder == 'blog') %}active{% endif %}">Blog</a>
+                <a href="#" class="{% if ( request.endpoint|folder == 'portfolio') %}active{% endif %}">Portfolio</a>
+                <a href="#" class="{% if ( request.endpoint|folder == 'competence') %}active{% endif %}">Compétences</a>
+                <a href="{{ url_for('contact') }}" class="{% if ( request.endpoint|folder == 'contact') %}active{% endif %}">Contact</a>
                 {% endblock %}
             </nav>
         </header>
@@ -35,4 +37,5 @@
             {% endblock %}
         </section>
     </body>
+    <script src="{{ url_for('static', filename='js/main.js') }}" charset="utf-8"></script>
 </html>

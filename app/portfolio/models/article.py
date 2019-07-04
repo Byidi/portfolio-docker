@@ -3,12 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
 from portfolio.db import Base, db_session
-from portfolio.utils import slugify
-
-association_table = Table('assoc_article_category', Base.metadata,
-    Column('category_id', Integer, ForeignKey('category.id')),
-    Column('article_id', Integer, ForeignKey('article.id'))
-)
+from portfolio.utils.tools import slugify
 
 class Article(Base):
     __tablename__ = 'article'
@@ -16,16 +11,11 @@ class Article(Base):
     title = Column(String(50), unique=False, nullable=False)
     slug = Column(String(50), unique=False, nullable=False)
     content = Column(Text, unique=False, nullable=False)
-    published = Column(Text, unique=False, nullable=False)
-    publishDate = Column(Integer, unique=False, nullable=True)
+    publishedDate = Column(Integer, unique=False, nullable=True)
+    category_id = Column(Integer, ForeignKey('category.id'), unique=False, nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
 
-    categories = relationship(
-        "Category",
-        secondary=association_table,
-        back_populates="articles")
-
-    def __init__(self, title=None, content=None, user_id=None, slug=None, published=0):
+    def __init__(self, title=None, slug=None, content=None, publishedDate=-1, category_id=None, user_id=None):
         self.title = title
         if slug is None:
             self.slug = slugify(self.title)
@@ -33,8 +23,9 @@ class Article(Base):
             self.slug = slug
         endif
         self.content = content
+        self.publishedDate = publishedDate
+        self.category_id = category_id
         self.user_id = user_id
-        self.published = published
 
     def __repr__(self):
         return '<Article %r>' % (self.title)
@@ -43,11 +34,7 @@ class Category(Base):
     __tablename__ = 'category'
     id = Column(Integer, primary_key=True)
     name = Column(String(100), unique=False, nullable=False)
-
-    articles = relationship(
-        "Article",
-        secondary=association_table,
-        back_populates="categories")
+    article = relationship('Article', backref='category', lazy=True)
 
     def __init__(self, name=None):
         self.name = name

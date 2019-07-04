@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+    {% if (request.endpoint == 'blog.index') %}
+        <div class="command">ls -lt ./Articles/</div>
+    {% elif (request.endpoint == 'blog.listArticleFromCategory') %}
+        <div class="command">find ./Articles/ -group {{articles[0].category.name|slug}}</div>
+    {% endif %}
+    {% for article in articles %}
+        <article class="blogArticle">
+            <span>-rw-r--r--</span>
+            <span>1</span>
+            <span>{{article.user.name|capitalize}}</span>
+            <a href="{{ url_for('blog.listArticleFromCategory', id=article.category.id, slug=article.category.name|slug) }}"><h3>{{article.category.name|capitalize|slug}}</h3></a>
+            <span>{{article.content|count}}</span>
+            <span>{{article.publishedDate|datetimeformat('%d %b. %H:%M')}}</span>
+            <h2><a href="{{ url_for('blog.showArticle', id=article.id, slug=article.slug)}}">{{article.title}}</a></h2>
+        </article>
+    {% endfor %}
+
+{% endblock %}
