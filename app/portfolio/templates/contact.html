@@ -3,16 +3,28 @@
 {% block content %}
 
     {% include 'parts/windowTop.html' %}
-
         <form id="formContact" method="post">
-            <div>
-                Nom : <input type="text" name="nom" placeholder="">
+            <div class="line">
+                <div class="btn send noselect">
+                    <i class="material-icons noselect">send</i>
+                    <div class="txt noselect">Envoyer</div>
+                </div>
+                <div class="btn cancel noselect">
+                    <i class="material-icons noselect">cancel</i>
+                    <div class="txt noselect">Annuler</div>
+                </div>
             </div>
-            <div>
-                Prénom : <input type="text" name="prenom" placeholder="">
+            <div class="line">
+                <div>Expéditeur : </div><input type="text" name="mail" placeholder="" class="field"/>
             </div>
-            <div>
-                Mail : <input type="text" name="email" placeholder="">
+            <div class="line">
+                <div>Pour :</div><input type="text" name="mailto" disabled value="Vincent Sajot"  class="field"/>
+            </div>
+            <div class="line">
+                <div>Sujet :</div><input type="text" name="sujet"  class="field"/>
+            </div>
+            <div class="line">
+                <textarea name="content"></textarea>
             </div>
         </form>
 

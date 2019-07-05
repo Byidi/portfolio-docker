@@ -5,7 +5,12 @@
 {% endblock %}
 
 {% block arianne %}
-    <div class="subArianne">{{article.category.name}}</div>
+    <a href="{{ url_for('blog.index') }}" class="subArianne">
+        Blog
+    </a>
+    <a href="{{ url_for('blog.listArticleFromCategory', id=article.category.id, slug=article.category.name|slug) }}" class="subArianne">
+        {{article.category.name}}
+    </a>
     <a href="{{ url_for('blog.showArticle', id=article.id, slug=article.slug) }}" class="subArianne">
         {{article.slug}}
     </a>
