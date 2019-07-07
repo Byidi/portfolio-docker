@@ -41,3 +41,7 @@ class Category(Base):
 
     def __repr__(self):
         return '<Category %r>' % (self.name)
+
+    def save(self):
+        db_session.add(self)
+        return db_session.commit()

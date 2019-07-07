@@ -10,8 +10,8 @@ class Project(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String(50), unique=False, nullable=False)
     description = Column(Text, unique=False, nullable=False)
-    url = Column(Text, unique=True, nullable=True)
-    git = Column(Text, unique=True, nullable=True)
+    url = Column(Text, unique=False, nullable=True)
+    git = Column(Text, unique=False, nullable=True)
     date = Column(Integer, unique=False, nullable=False)
 
     def __init__(self, title=None, description=None, date=None):
