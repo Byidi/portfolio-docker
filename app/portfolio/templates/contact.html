@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block arianne%}
+    <a href="{{ url_for('contact') }}" class="subArianne">
+        Contact
+    </a>
+{% endblock %}
+
 {% block content %}
 
     {% include 'parts/windowTop.html' %}
@@ -15,13 +21,13 @@
                 </div>
             </div>
             <div class="line">
-                <div>Expéditeur : </div><input type="text" name="mail" placeholder="" class="field"/>
+                <div>Expéditeur </div><input type="text" name="mail" placeholder="" class="field"/>
             </div>
             <div class="line">
-                <div>Pour :</div><input type="text" name="mailto" disabled value="Vincent Sajot"  class="field"/>
+                <div>Pour </div><input type="text" name="mailto" disabled value="Vincent Sajot"  class="field"/>
             </div>
             <div class="line">
-                <div>Sujet :</div><input type="text" name="sujet"  class="field"/>
+                <div>Sujet </div><input type="text" name="sujet"  class="field"/>
             </div>
             <div class="line">
                 <textarea name="content"></textarea>

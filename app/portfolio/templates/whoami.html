@@ -1,0 +1,16 @@
+{% extends 'apropos.html' %}
+
+
+{% block subcontent %}
+    <div class="command">term -e cat whoami</div>
+
+    {% include 'parts/windowTop.html' %}
+            <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="avatar">
+Passionné par l’informatique et le numérique depuis de nombreuses années, j’ai commencé le développement en autodidacte au lycée.<br/>
+J’ai suivi un cursus informatique à la fac de Calais, suite à quoi j’ai créé et géré pendant 4 années une entreprise de création de site internet, maintenance et vente informatique sur Calais avec 2 collègues.<br/>
+Ce qui m’a permis de continuer d’apprendre et de m’améliorer dans le domaine qui me passionne, et également de connaître le monde de l’entreprise vu de l’intérieur.<br/>
+J’ai rejoint au cours de ces années plusieurs associations, en qualité de développeur bénévole, ce qui m’a donné l’opportunité de travailler avec des développeurs de profession qui m’ont apporté de nombreuses connaissances.<br/>
+J’ai intégré la formation Simplon.co Référent digital à Boulogne sur mer en 2017 à la suite de laquelle j’ai obtenu ma certification méthode agile et référent digital. Toujours à la recherche de nouveaux challenges et de nouvelles connaissances je participe aujourdhui à la formation Simplon.co Développeur web de Calais afin d’approfondir mes compétences et connaissances en développement mais également en méthodologie de travail, et gestion de projet.
+
+    {% include 'parts/windowBottom.html' %}
+{% endblock %}

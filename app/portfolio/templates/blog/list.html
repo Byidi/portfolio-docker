@@ -21,13 +21,13 @@
     {% endif %}
     {% for article in articles %}
         <article class="blogArticle">
-            <span>-rw-r--r--</span>
-            <span>1</span>
-            <span>{{article.user.name|capitalize}}</span>
-            <a href="{{ url_for('blog.listArticleFromCategory', id=article.category.id, slug=article.category.name|slug) }}"><h3>{{article.category.name|capitalize|slug}}</h3></a>
-            <span>{{article.content|count}}</span>
-            <span>{{article.publishedDate|datetimeformat('%d %b. %H:%M')}}</span>
-            <h2><a href="{{ url_for('blog.showArticle', id=article.id, slug=article.slug)}}">{{article.title}}</a></h2>
+            <span class="right">-rw-r--r--</span>
+            <span class="num">1</span>
+            <span class="author">{{article.user.name|capitalize}}</span>
+            <a class="category" href="{{ url_for('blog.listArticleFromCategory', id=article.category.id, slug=article.category.name|slug) }}"><h3>{{article.category.name|capitalize|slug}}</h3></a>
+            <span class="count">{{article.content|count}}</span>
+            <span class="date">{{article.publishedDate|datetimeformat('%d %b. %H:%M')}}</span>
+            <a class="article" href="{{ url_for('blog.showArticle', id=article.id, slug=article.slug)}}"><h2>{{article.title}}</h2></a>
         </article>
     {% endfor %}
 

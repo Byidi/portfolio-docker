@@ -1,0 +1,55 @@
+#arianne{
+    height: auto;
+    font-size: 1em;
+    flex-direction: column;
+    align-items: flex-start;
+}
+#arianne .subArianne{
+    width: 60%;
+    height: 30px;
+    white-space: nowrap;
+}
+
+#arianne .subArianne:nth-child(odd)::after, #arianne .subArianne:nth-child(even)::after{
+    border-top : 15px solid transparent;
+    border-bottom : 15px solid transparent;
+}
+
+#arianne .subArianne:nth-child(odd)::after{
+    border-left : 15px solid var(--secColor);
+}
+
+#arianne .subArianne:nth-child(even)::after{
+    border-left : 15px solid var(--mainColor);
+}
+
+#arianne .subArianne.avatar, #arianne .subArianne.name{
+    display: none;
+}
+
+#menu, .submenu{
+    flex-wrap: wrap;
+}
+
+.blogArticle .right, .blogArticle .num, .blogArticle .count, .blogArticle .date{
+    display:none;
+}
+
+.window{
+    width: 90vw;
+    left: 5vw;
+}
+
+.window .content.project{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+}
+
+.window .project img{
+    width: 90%;
+    height: auto;
+    float: none;
+}

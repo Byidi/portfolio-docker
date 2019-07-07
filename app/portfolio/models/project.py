@@ -5,11 +5,13 @@ from sqlalchemy.orm import sessionmaker, relationship
 from portfolio.db import Base, db_session
 from portfolio.utils.tools import slugify
 
-class Projet(Base):
-    __tablename__ = 'prjoet'
+class Project(Base):
+    __tablename__ = 'project'
     id = Column(Integer, primary_key=True)
     title = Column(String(50), unique=False, nullable=False)
-    description = Column(String(50), unique=False, nullable=False)
+    description = Column(Text, unique=False, nullable=False)
+    url = Column(Text, unique=True, nullable=True)
+    git = Column(Text, unique=True, nullable=True)
     date = Column(Integer, unique=False, nullable=False)
 
     def __init__(self, title=None, description=None, date=None):
@@ -18,4 +20,4 @@ class Projet(Base):
         self.date = date
 
     def __repr__(self):
-        return '<Projet %r>' % (self.title)
+        return '<Project %r>' % (self.title)

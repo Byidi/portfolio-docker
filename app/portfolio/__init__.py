@@ -38,6 +38,9 @@ def create_app(test_config=None):
     from portfolio import blog
     app.register_blueprint(blog.bp)
 
+    from portfolio import project
+    app.register_blueprint(project.bp)
+
     @app.route('/')
     def index():
         return render_template('index.html')
@@ -45,5 +48,17 @@ def create_app(test_config=None):
     @app.route('/contact/')
     def contact():
         return render_template('contact.html')
+
+    @app.route('/apropos/')
+    def apropos():
+        return render_template('apropos.html')
+
+    @app.route('/apropos/whoami/')
+    def whoami():
+        return render_template('whoami.html')
+
+    @app.route('/apropos/cv/')
+    def cv():
+        return render_template('cv.html')
 
     return app

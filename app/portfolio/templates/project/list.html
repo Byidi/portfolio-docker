@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block arianne%}
+    <a href="{{ url_for('project.index') }}" class="subArianne">
+        Portfolio
+    </a>
+{% endblock %}
+
+{% block content %}
+    <div class="command">ls -d ./Portfolio/</div>
+
+    <nav class="submenu">
+        {% for p in projects %}
+            <a href="{{ url_for('project.show', id=p.id, slug=p.title|slug)}}" class="
+                {% if ((request.endpoint == 'project.show') and (p.title == project.title)) %}active{% endif %}
+            ">{{p.title|slug}}</a>
+        {% endfor %}
+    </nav>
+
+    {% block project %}{% endblock %}
+
+{% endblock %}

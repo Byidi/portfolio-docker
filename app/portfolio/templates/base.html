@@ -5,15 +5,16 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" media="screen and (max-width: 720px)" href="{{ url_for('static', filename='css/max720.css') }}" type="text/css" />
         <title>Vincent Sajot - {% block title %}{% endblock %}</title>
     </head>
     <body>
         <header>
             <div id="arianne">
                 <div class="subArianne avatar">
-                    <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="">
+                    <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="avatar">
                 </div>
-                <div class="subArianne">
+                <div class="subArianne name">
                     vincent<span class="arobase">@</span>sajot
                 </div>
                 <a href="{{ url_for('index') }}" class="subArianne">
@@ -26,8 +27,8 @@
             <nav id="menu">
                 {% block menu %}
                 <a href="{{ url_for('blog.index') }}" class="{% if ( request.endpoint|folder == 'blog') %}active{% endif %}">Blog</a>
-                <a href="#" class="{% if ( request.endpoint|folder == 'portfolio') %}active{% endif %}">Portfolio</a>
-                <a href="#" class="{% if ( request.endpoint|folder == 'competence') %}active{% endif %}">Compétences</a>
+                <a href="{{ url_for('project.index') }}" class="{% if ( request.endpoint|folder == 'project') %}active{% endif %}">Portfolio</a>
+                <a href="{{ url_for('apropos') }}" class="{% if ( request.endpoint|folder == 'apropos') %}active{% endif %}">A_propos</a>
                 <a href="{{ url_for('contact') }}" class="{% if ( request.endpoint|folder == 'contact') %}active{% endif %}">Contact</a>
                 {% endblock %}
             </nav>

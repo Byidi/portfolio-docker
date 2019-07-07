@@ -12,15 +12,16 @@
         {{article.category.name}}
     </a>
     <a href="{{ url_for('blog.showArticle', id=article.id, slug=article.slug) }}" class="subArianne">
-        {{article.slug}}
+        {{article.title}}
     </a>
 {% endblock %}
 
 {% block content %}
 
-    <div class="term">
+    {% include 'parts/windowTop.html' %}
         {{article.title}}<br/>
         {{article.content}}<br/>
         {{article.user.name}}<br/>
-    </div>
+    {% include 'parts/windowBottom.html' %}
+
 {% endblock %}

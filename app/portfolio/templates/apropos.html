@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block arianne%}
+    <a href="{{ url_for('contact') }}" class="subArianne">
+        Contact
+    </a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="command">ls ./A_propos/</div>
+
+    <nav class="submenu">
+        <a href="{{ url_for('whoami') }}" class="{% if ( request.endpoint == 'whoami') %}active{% endif %}">whoami</a>
+        <a href="{{ url_for('cv') }}" class="{% if ( request.endpoint == 'cv') %}active{% endif %}">CV</a>
+    </nav>
+
+    {% block subcontent %}
+    {% endblock %}
+
+{% endblock %}

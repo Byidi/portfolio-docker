@@ -1,0 +1,592 @@
+{% extends 'apropos.html' %}
+
+
+{% block subcontent %}
+    <div class="command">cat cv</div>
+    {% include 'parts/windowTop.html' %}
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+#cv *{
+margin: 0;
+padding: 0;
+font-family: 'Quicksand';
+box-sizing: border-box;
+}
+
+#cv .text-white{
+color: #FFFFFF;
+}
+
+#cv .text-blue-light{
+color: #1689CA;
+}
+
+#cv .text-blue-dark{
+color: #1E365C;
+}
+
+#cv .text-bold{
+font-weight: bold;
+}
+
+#cv .text-medium{
+font-size: 20px;
+}
+
+#cv .text-big{
+font-size: 24px;
+}
+
+#cv .divider, #cv .divider-small{
+width: 100%;
+height: 15px;
+background-image: url('../../static/images/cv//divider.png');
+background-position: center;
+background-repeat: no-repeat;
+background-size: 60%;
+margin: 3px 0px;
+}
+
+#cv .divider-small{
+height: 10px;
+background-size: 40%;
+}
+
+/*** HEADER ***/
+
+#cv #header{
+background-image: url('../../static/images/cv//header.png');
+width: 100%;
+height: 194px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width: 794px;
+margin: auto;
+}
+
+#cv #contacts{
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+margin-left: 20px;
+}
+
+#cv .contact{
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+#cv #personnal{
+width: 305px;
+padding-top: 40px;
+}
+
+#cv #personnal div{
+margin-top: 5px;
+}
+
+#cv #personnal .birthday{
+position: relative;
+left: -10px;
+}
+
+#cv #personnal .job{
+position: relative;
+left: -20px;
+}
+
+#cv #header a{
+color: #FFFFFF;
+text-decoration: none;
+}
+
+/*** CONTENT ***/
+
+#cv #content{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+padding-top: 10px;
+background-color: #FFFFFF;
+width: 794px;
+margin: auto;
+}
+
+/*** EXPERIENCE ***/
+
+#cv #experiences{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+width: 412px;
+}
+
+#cv .title-large{
+background-image: url('../../static/images/cv//title_large.png');
+background-repeat: no-repeat;
+height: 70px;
+width: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+#cv .experience{
+display: flex;
+flex-direction: row;
+}
+
+#cv .date{
+margin-left: 20px;
+width: 110px;
+}
+
+#cv .desc{
+width: 100%;
+margin-left: 5px;
+}
+
+/*** MISC ***/
+
+#cv #misc{}
+
+#cv #knowledge{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+width: 320px;
+padding-bottom: 10px;
+}
+
+#cv .title-small{
+background-image: url('../../static/images/cv//title_small2.png');
+background-repeat: no-repeat;
+height: 70px;
+width: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+#cv .logo-row{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+margin-bottom: 5px;
+}
+
+#cv .lang{
+margin-left: 50px;
+margin-bottom: 5px;
+}
+
+#cv .icon-title{
+width: 59px;
+height: 59px;
+border: 3px solid #2D313D;
+background-color: #1588C9;
+border-radius: 50%;
+margin-left: 4px;
+margin-right: 10px;
+background-size: 70%;
+background-position: 50% 50%;
+background-repeat: no-repeat;
+}
+
+#cv .logo{
+text-align: center;
+}
+
+#cv .logo-small, #cv .logo-large{
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
+}
+
+#cv .logo-small{
+height: 50px;
+min-width: 50px;
+}
+
+#cv .logo-large{
+height: 50px;
+min-width: 70px;
+}
+
+#cv .icon-contact{
+width: 32px;
+height: 32px;
+background-color: #1588C9;
+margin-right: 10px;
+border-radius: 50%;
+background-size: 60%;
+background-position: 50% 50%;
+background-repeat: no-repeat;
+}
+
+#cv #icon-phone{
+background-image: url('../../static/images/cv//icons/phone.png');
+}
+
+#cv #icon-mail{
+background-image: url('../../static/images/cv//icons/mail.png');
+}
+
+#cv #icon-home{
+background-image: url('../../static/images/cv//icons/home.png');
+}
+
+#cv #icon-github{
+background-image: url('../../static/images/cv//icons/github.png');
+}
+
+#cv #icon-title-pro{
+background-image: url('../../static/images/cv//icons/pro.png');
+}
+
+#cv #icon-title-edu{
+background-image: url('../../static/images/cv//icons/edu.png');
+}
+
+#cv #icon-title-spare{
+background-image: url('../../static/images/cv//icons/spare.png');
+}
+
+#cv #icon-title-knowledge{
+background-image: url('../../static/images/cv//icons/knowledge.png');
+}
+
+#cv #icon-title-lang{
+background-image: url('../../static/images/cv//icons/lang.png');
+}
+
+#cv #logo-front{
+background-image: url('../../static/images/cv//logos/front.png');
+}
+
+#cv #logo-mysql{
+background-image: url('../../static/images/cv//logos/mysql.png');
+}
+
+#cv #logo-php{
+background-image: url('../../static/images/cv//logos/php.png');
+}
+
+#cv #logo-laravel{
+background-image: url('../../static/images/cv//logos/laravel.png');
+}
+
+#cv #logo-symfony{
+background-image: url('../../static/images/cv//logos/symfony.png');
+}
+
+#cv #logo-react{
+background-image: url('../../static/images/cv//logos/react.png');
+}
+
+#cv #logo-python{
+background-image: url('../../static/images/cv//logos/python.png');
+}
+
+#cv #logo-django{
+background-image: url('../../static/images/cv//logos/django.png');
+}
+
+#cv #logo-jquery{
+background-image: url('../../static/images/cv//logos/jquery2.png');
+}
+
+#cv #logo-ajax{
+background-image: url('../../static/images/cv//logos/ajax.png');
+}
+
+#cv #logo-apache{
+background-image: url('../../static/images/cv//logos/apache.png');
+}
+
+#cv #logo-nginx{
+background-image: url('../../static/images/cv//logos/nginx.png');
+}
+
+#cv #logo-git{
+background-image: url('../../static/images/cv//logos/git.png');
+}
+
+#cv #logo-linux{
+background-image: url('../../static/images/cv//logos/linux.png');
+}
+
+#cv #logo-archlinux{
+background-image: url('../../static/images/cv//logos/archlinux.png');
+}
+
+#cv #logo-bash{
+background-image: url('../../static/images/cv//logos/bash.png');
+}
+
+/*** SKILLS ***/
+
+#cv #skills{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: flex-start;
+width: 320px;
+padding-bottom: 10px;
+}
+
+#cv #skills .text-blue-dark{
+padding-top: 3px;
+padding-left: 35px;
+}
+
+#cv #icon-title-skill{
+background-image: url('../../static/images/cv//icons/skill.png');
+}
+
+</style>
+<div id="cv">
+<div id="header">
+    <div id="contacts">
+        <div id="phone" class="contact">
+            <div class="icon-contact" id="icon-phone"></div>
+            <div class="text-white text-bold">06 61 02 05 81</div>
+        </div>
+        <div id="mail" class="contact">
+            <div class="icon-contact" id="icon-mail"></div>
+            <div class="text-white text-bold">
+                <a href="mailto:sajot.vincent@gmail.com" target="_blank">sajot.vincent@gmail.com</a>
+            </div>
+        </div>
+        <div id="adress" class="contact">
+            <div class="icon-contact" id="icon-home"></div>
+            <div class="text-white text-bold">17 rue Henri de Baillon, 62100 Calais</div>
+        </div>
+        <div id="git" class="contact">
+            <div class="icon-contact" id="icon-github"></div>
+            <div class="text-white text-bold">
+                <a href="https://github.com/byidi" target="_blank">https://github.com/byidi</a></div>
+        </div>
+    </div>
+    <div id="personnal">
+        <div class="text-white text-bold text-big">SAJOT Vincent</div>
+        <div class="text-white text-medium birthday">14/07/1985</div>
+        <div class="text-white text-bold text-big job">D&eacute;veloppeur back end</div>
+    </div>
+</div>
+<div id="content">
+    <div id="experiences">
+        <div id="professional">
+            <div class="title-large">
+                <div class="icon-title" id="icon-title-pro"></div>
+                <div class="text-white text-bold text-medium">Exp&eacute;riences</div>
+            </div>
+
+            <div class="experience">
+                <div class="date">2018</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">Hackathon</div>
+                    <div>
+                        <span class="text-bold text-blue-dark">1&egrave;re place</span>
+                        <span class="text-blue-dark">Mers et Oc&eacute;ans 2018, CCI Boulogne sur mer</span>
+                    </div>
+                    <div>
+                        <span class="text-bold text-blue-dark">1&egrave;re place</span>
+                        <span class="text-blue-dark">IOT by CCI Calais</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="experience">
+                <div class="date">F&eacute;v. 2010<br/>Avril 2014</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">Toobug</div>
+                    <div>
+                        <span class="text-bold text-blue-dark">G&eacute;rant :</span>
+                        <span class="text-blue-dark">
+                            Maintenance informatique, cr&eacute;ation de site internet
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="experience">
+                <div class="date">2008<br/>2011</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">Mondes Persistants</div>
+                    <span class="text-bold text-blue-dark">B&eacute;n&eacute;vole :</span>
+                    <span class="text-blue-dark">D&eacute;veloppeur web portails multisite jeux vidéo</span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="experience">
+                <div class="date">2012<br/>2014</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">Origine Online</div>
+                    <span class="text-bold text-blue-dark">B&eacute;n&eacute;vole :</span>
+                    <span class="text-blue-dark">Responsable technique et développeur web, association esport</span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="experience">
+                <div class="date">Juin 2009<br/>Ao&ucirc;t 2009</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">H&ocirc;pital de Calais</div>
+                    <div>
+                        <span class="text-bold text-blue-dark">Stagiaire :</span>
+                        <span class="text-blue-dark">
+                            D&eacute;veloppement d'un portail intranet avec Lotus.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="experience">
+                <div class="date">Juin 2007<br/>Ao&ucirc;t 2007</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">Mairie de Calais</div>
+                    <div>
+                        <span class="text-bold text-blue-dark">Stagiaire :</span>
+                        <span class="text-blue-dark">
+                            D&eacute;veloppement d'un outil de gestion de stock.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="education">
+            <div class="title-large">
+                <div class="icon-title" id="icon-title-edu"></div>
+                <div class="text-white text-bold text-medium">Formations</div>
+            </div>
+
+            <div class="experience">
+                <div class="date">Mai. 2019<br/>D&eacute;c 2019</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">D&eacute;veloppeur web</div>
+                    <div>
+                        <span class="text-bold text-blue-dark">Simplon, Calais</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="experience">
+                <div class="date">Nov. 2017<br/>Juin 2018</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">R&eacute;f&eacute;rent Digital</div>
+                    <div>
+                        <span class="text-bold text-blue-dark">Simplon, Boulogne sur mer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="experience">
+                <div class="date">Sep. 2004<br/>Juin 2009</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">Licence Informatique</div>
+                    <div>
+                        <span class="text-bold text-blue-dark">Universit&eacute; du Littoral C&ocirc;te d'Opale, Calais</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="experience">
+                <div class="date">Juin 2003</div>
+                <div class="desc">
+                    <div class="text-medium text-bold text-blue-light">Baccalaur&eacute;at scientifique</div>
+                    <div>
+                        <span class="text-bold text-blue-dark">Lyc&eacute;e L&eacute;onard de Vinci, Calais</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="misc">
+        <div id="knowledge">
+            <div class="title-small">
+                <div class="icon-title" id="icon-title-knowledge"></div>
+                <div class="text-white text-bold text-medium">Connaissances</div>
+            </div>
+            <div class="logo-row">
+                <div class="logo">Html/Css/Js<div class="logo-small" id="logo-front"></div></div>
+            </div>
+            <div class="divider-small"></div>
+            <div class="logo-row">
+                <div class="logo">PHP<div class=" logo-large" id="logo-php"></div></div>
+                <div class="logo">MYSQL<div class=" logo-large" id="logo-mysql"></div></div>
+                <div class="logo">Symfony<div class=" logo-small" id="logo-symfony"></div></div>
+            </div>
+            <div class="divider-small"></div>
+            <div class="logo-row">
+                <div class="logo">Python<div class=" logo-small" id="logo-python"></div></div>
+                <div class="logo">Django<div class=" logo-large" id="logo-django"></div></div>
+            </div>
+            <div class="divider-small"></div>
+            <div class="logo-row">
+                <div class="logo">Apache<div class=" logo-small" id="logo-apache"></div></div>
+                <div class="logo">Nginx<div class=" logo-small" id="logo-nginx"></div></div>
+                <div class="logo">Git<div class=" logo-small" id="logo-git"></div></div>
+            </div>
+            <div class="divider-small"></div>
+            <div class="logo-row">
+                <div class="logo">Linux<div class=" logo-small" id="logo-linux"></div></div>
+                <div class="logo">Archlinux<div class=" logo-small" id="logo-archlinux"></div></div>
+                <div class="logo">Bash<div class=" logo-large" id="logo-bash"></div></div>
+            </div>
+        </div>
+        <div id="skills">
+            <div class="title-small">
+                <div class="icon-title" id="icon-title-skill"></div>
+                <div class="text-white text-bold text-medium">Comp&eacute;tences</div>
+            </div>
+            <div class="text-bold text-blue-dark">M&eacute;thodes agiles</div>
+            <div class="divider-small"></div>
+            <div class="text-bold text-blue-dark">Gestion de projet</div>
+            <div class="divider-small"></div>
+            <div class="text-bold text-blue-dark">Rédaction de cahier des charges</div>
+            <div class="divider-small"></div>
+            <div class="text-bold text-blue-dark">Analyse fonctionnelle</div>
+        </div>
+        <div id="langs">
+            <div class="title-small">
+                <div class="icon-title" id="icon-title-lang"></div>
+                <div class="text-white text-bold text-medium">Langues</div>
+            </div>
+            <div class="lang">
+                <span class="text-medium text-bold text-blue-light">Anglais : </span>
+                <span class="text-bold text-blue-dark">Courant</span>
+            </div>
+            <div class="lang">
+                <span class="text-medium text-bold text-blue-light">Espagnol : </span>
+                <span class="text-bold text-blue-dark">D&eacute;butant</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    {% include 'parts/windowBottom.html' %}
+{% endblock %}

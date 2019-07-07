@@ -14,16 +14,16 @@ bp = Blueprint('blog', __name__, url_prefix='/blog')
 @bp.route('/')
 def index():
     articles = Article.query.filter(Article.publishedDate != -1).order_by(Article.publishedDate).all()
-    return render_template('blog/listArticles.html', articles=articles)
+    return render_template('blog/list.html', articles=articles)
 
 @bp.route('/article/<int:id>')
 @bp.route('/article/<int:id>/<string:slug>')
 def showArticle(id=None, slug=None):
     article = Article.query.filter(Article.id == id).first()
-    return render_template('blog/article.html', article=article)
+    return render_template('blog/show.html', article=article)
 
 @bp.route('/category/<int:id>')
 @bp.route('/category/<int:id>/<string:slug>')
 def listArticleFromCategory(id=None, slug=None):
     articles = Article.query.filter(Article.publishedDate != -1).filter(Article.category_id == id)
-    return render_template('blog/listArticles.html', articles=articles)
+    return render_template('blog/list.html', articles=articles)

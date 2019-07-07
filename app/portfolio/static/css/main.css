@@ -121,28 +121,27 @@ body{
 
 /**** MENU ****/
 
-#menu{
+#menu, .submenu{
     margin: 25px 0px 25px 15px;
     display: flex;
 }
 
-#menu a{
+#menu a, .submenu a{
     padding: 10px;
     padding-bottom: 6px;
     margin-right: 30px;
     letter-spacing: 0.3em;
 }
 
-#menu:hover .active{
+#menu:hover .active, .submenu:hover .active{
     background-color: var(--bgColor);
     color: var(--mainColor);
 }
 
-#menu a:hover, #menu .active{
+#menu a:hover, #menu .active, .submenu a:hover, .submenu .active{
     background-color: var(--mainColor);
     color: var(--bgColor);
 }
-
 
 /**** CONTENT ****/
 
@@ -185,7 +184,7 @@ body{
     background-color: var(--mainColor);
 }
 
-.blogArticle:hover a, .blogArticle:hover span{
+.blogArticle:hover a, .blogArticle:hover span, .blogArticle:hover h2, .blogArticle:hover h3{
     color: var(--bgColor);
 }
 
@@ -253,7 +252,8 @@ body{
 
 #formContact .field{
     margin-left: 10px;
-    width: 100%;
+    margin-right: 10px;
+    flex: 1 1 20%;
     border: 0;
     border-bottom: 1px solid var(--mainColor);
     background-color: var(--lightBgColor);
@@ -270,9 +270,12 @@ body{
 
 /* WINDOW */
 
+    /* GENERAL */
+
 .window{
     width: 60vw;
     position: absolute;
+    left: 2%;
     z-index: 900;
     border: 2px solid var(--mainColor);
     border-radius: 5px 5px 3px 3px;
@@ -317,3 +320,73 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+    /* PROJECT */
+
+.window .content.project{
+    padding: 10px;
+    display: block;
+    text-align: justify;
+}
+
+.window .project h3{
+    flex : 0 0 100%;
+    text-align: center;
+    color: var(--secColor);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.window .project img{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 200px;
+    float: left;
+}
+
+.window .project div{
+    flex: 1 1 50%;
+}
+
+.window .project .link{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.window .project .link i{
+    font-size: 1.5em;
+    background-color: var(--bgColor);
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.window .project .link a:hover{
+    text-decoration: underline;
+}
+
+    /* WHOAMI */
+
+.window .content.whoami{
+    padding: 20px;
+    display: block;
+    text-align: justify;
+}
+
+.window .whoami img{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 200px;
+    float: left;
+    background-color: white;
+}
+
+.window .whoami{
+    line-height: 1.8em;
+}
+
+
+/* SKILL */

@@ -1,0 +1,35 @@
+{% extends 'project/list.html' %}
+
+{% block arianne%}
+    <a href="{{ url_for('project.index') }}" class="subArianne">
+        Portfolio
+    </a>
+    <a href="{{ url_for('project.show', id=project.id, slug=project.title|slug)}}" class="subArianne">
+        {{project.title}}
+    </a>
+{% endblock %}
+
+{% block project %}
+
+    {% include 'parts/windowTop.html' %}
+
+    <h3>{{project.title}}</h3>
+    <img src='{{ url_for('static', filename='images/project/') }}{{project.id}}.png'/>
+    {{project.description}}
+    <br/><br/>
+    {% if (project.git != None ) %}
+    <div class="link">
+        <i class="material-icons">code</i>
+        <a href="{{project.git}}" target="_blank">{{project.git}}</a>
+    </div>
+    {% endif %}
+    {% if (project.url != None ) %}
+    <div class="link">
+        <i class="material-icons">launch</i>
+        <a href="{{project.url}}" target="_blank">{{project.url}}</a>
+    </div>
+    {% endif %}
+
+    {% include 'parts/windowBottom.html' %}
+
+{% endblock %}
